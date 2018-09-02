@@ -50,6 +50,6 @@ server.post('/ranking', function(req, res, next) {
     res.send();
 });
 
-server.listen(8080, function () {
+server.listen(8088, function () {
   console.log('%s listening at %s', server.name, server.url);
 });
