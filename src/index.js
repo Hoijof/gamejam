@@ -42,6 +42,8 @@ server.get('/ranking', function(req, res, next) {
 });
 
 server.post('/ranking', function(req, res, next) {
+    console.log(req.body);
+    console.log(req);
     addToRanking(req.body);
 
     sortRanking();
