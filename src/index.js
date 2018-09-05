@@ -10,13 +10,7 @@ server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
 let ranking = [
-    ['Name 1', 1],
-    ['Name 2', 10],
-    ['Name 3', 100],
-    ['Name 4', 1000],
-    ['Name 5', 4000],
-    ['Name 6', 6000],
-    ['Name 7', 8000],
+	[ 'nobody', 1000000]
 ];
 
 function sortRanking() {
@@ -26,7 +20,7 @@ function sortRanking() {
 }
 
 function addToRanking(data) {
-    ranking.push([data.name, data.score]);
+    ranking.push([data.name, parseInt(data.score, 10)]);
 }
 
 function trimRanking() {
@@ -43,7 +37,7 @@ server.get('/ranking', function(req, res, next) {
 
 server.post('/ranking', function(req, res, next) {
     console.log(req.body);
-    console.log(req);
+//    console.log(req);
     addToRanking(req.body);
 
     sortRanking();
